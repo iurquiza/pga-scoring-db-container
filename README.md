@@ -1,3 +1,6 @@
+# pga-scoring-db-container
+MSSQL Docker Container for the PGA Scoring System
+
 ## Requirements
 Docker  
 Docker Compose  
