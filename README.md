@@ -10,7 +10,7 @@ scoring-dev20190614.bak
 * Place `scoring-dev20190614.bak` in the same directory after cloning the repository.
 * Run `docker-compose up`.
 * Make the `.bat` or `.sh` executable `chmod +x init_db.sh`.
-* Run the `init_db.sh` file, or run the commands within the file manually one by one in order.
+* Run the `init_db.sh` file or run the commands within the file manually one by one in order.
 
 ## Running queries inside the container
 * Install sql-cli `npm install -g sql-cli`.
