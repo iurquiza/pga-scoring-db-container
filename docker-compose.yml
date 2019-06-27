@@ -1,0 +1,15 @@
+version: '3'
+services:
+  mssql:
+    image: microsoft/mssql-server-linux
+    restart: unless-stopped
+    container_name: mssql-container
+    ports:
+      - "127.0.0.1:1433:1433"
+    environment:
+      - SA_PASSWORD=Pass@word1
+      - ACCEPT_EULA=Y
+    volumes:
+      - sql1data:/var/opt/mssql
+volumes:
+    sql1data:
