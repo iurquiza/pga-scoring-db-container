@@ -1,7 +1,7 @@
 ## Requirements
-Docker
-Docker Compose
-scoring-dev20190614.bak
+Docker  
+Docker Compose  
+scoring-dev20190614.bak  
 
 ## Set up MSSQL Docker container
 * Place `scoring-dev20190614.bak` in the same directory after cloning the repository.
@@ -15,5 +15,7 @@ scoring-dev20190614.bak
 * Run your query: `SELECT name, database_id, create_date FROM sys.databases`
 
 ## Using a different `.bak` file
-* Run the folliwing command: ```docker exec -it mssql-container /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'Pass@word1' -Q 'RESTORE FILELISTONLY FROM DISK = "/var/opt/mssql/backup/scoring-dev20190614.bak"' | tr -s ' ' | cut -d ' ' -f 1-2```
-* Update the filenames (10Scoring) in the `TO` locations in the follow command of the `init_db` files with the output of the command listed above. Add other mappings as necessary:```docker exec -it mssql-container /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'Pass@word1' -Q 'RESTORE DATABASE scoring_dev FROM DISK = "/var/opt/mssql/backup/scoring-dev20190614.bak" WITH MOVE "scoring_dev" TO "/var/opt/mssql/data/10Scoring.mdf", MOVE "scoring_dev_log" TO "/var/opt/mssql/data/10Scoring.ldf"'```
+* Run the folliwing command: ```shell
+docker exec -it mssql-container /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'Pass@word1' -Q 'RESTORE FILELISTONLY FROM DISK = "/var/opt/mssql/backup/scoring-dev20190614.bak"' | tr -s ' ' | cut -d ' ' -f 1-2```
+* Update the filenames (10Scoring) in the `TO` locations in the follow command of the `init_db` files with the output of the command listed above. Add other mappings as necessary:```shell
+docker exec -it mssql-container /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'Pass@word1' -Q 'RESTORE DATABASE scoring_dev FROM DISK = "/var/opt/mssql/backup/scoring-dev20190614.bak" WITH MOVE "scoring_dev" TO "/var/opt/mssql/data/10Scoring.mdf", MOVE "scoring_dev_log" TO "/var/opt/mssql/data/10Scoring.ldf"'```
